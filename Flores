@@ -1,0 +1,66 @@
+:root {
+  --primary: #f1dbad;
+  --bg-color: #ff69b4;
+  --letter-bg: #fff;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Basado en la clase .Flores_Amarillas de tu imagen */
+.envelope-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: var(--primary);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* La solapa del sobre */
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 100px solid #e6cf9e;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%; /* Como en tu imagen */
+  height: 80%;
+  background: white;
+  transition: transform 0.4s ease;
+  z-index: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Animación al pasar el mouse o hacer click */
+.envelope-wrapper:hover .envelope::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope-wrapper:hover .letter {
+  transform: translateY(-100px);
+  z-index: 2;
+}
